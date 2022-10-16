@@ -70,6 +70,11 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     const playerRateField = document.getElementById('per-player');
     const playerRateString = playerRateField.value;
     const playerRate = parseFloat(playerRateString);
+    if (playerRateString === '' || isNaN(playerRateString)) {
+        alert('Please enter valid amount');
+        playerRateField.value = '';
+        return;
+    }
 
     const olCheck = document.querySelectorAll('#player-list li');
 
@@ -80,6 +85,11 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
 function getInputValueById(fieldId) {
     const inputField = document.getElementById(fieldId);
     const inputFieldString = inputField.value;
+    if (inputFieldString === '' || isNaN(inputFieldString)) {
+        alert('Please enter valid amount');
+        inputField.value = '';
+        // return;
+    }
     const inputValue = parseFloat(inputFieldString);
     return inputValue;
 }
